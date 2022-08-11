@@ -43,7 +43,7 @@ function Catch({ rethrow }: { rethrow: boolean } = { rethrow: false }) {
     };
 }
 
-console.group()
+console.group();
 console.log(new DecoratedMethod().methodWithoutRethrow());
 console.log(new DecoratedMethod().methodWithRethrow());
-console.groupEnd()
+console.groupEnd();
