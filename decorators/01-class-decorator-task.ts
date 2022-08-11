@@ -16,13 +16,14 @@
     }
 */
 
-interface IUserService {
+interface IDecoratedClass {
     users: number;
     getUsersInDatabase(): number;
 }
 
 @CreatedAt
-class UserService implements IUserService {
+// @ts-ignore
+class DecoratedClass implements IDecoratedClass {
     users: number = 1000;
 
     getUsersInDatabase(): number {
@@ -31,28 +32,28 @@ class UserService implements IUserService {
 }
 
 type CreatedAt = {
-    createdAt: Date
-}
+    createdAt: Date;
+};
 
 // Simple decorator version
-function CreatedAt<T extends { new(...args: any[]): {} }>(constructor: T) {
+function CreatedAt<T extends { new (...args: any[]): {} }>(constructor: T) {
     return class extends constructor {
         createdAt: Date = new Date();
-    }
+    };
 }
 
 // Factory decorator version
 function CreatedAtFactory(date: Date) {
-    return <T extends { new(...args: any[]): {} }>(constructor: T) => {
+    return <T extends { new (...args: any[]): {} }>(constructor: T) => {
         return class extends constructor {
-            createdAt: Date = date
-        }
-    }
+            createdAt: Date = date;
+        };
+    };
 }
 
-const us = new UserService() as IUserService & CreatedAt
+const us = new DecoratedClass() as IDecoratedClass & CreatedAt;
 
-console.group()
-console.log('CreatedAt is ', us.createdAt)
-console.log('Is solved: ', !!us.createdAt)
-console.groupEnd()
+console.group();
+console.log('CreatedAt is ', us.createdAt);
+console.log('Is solved: ', !!us.createdAt);
+console.groupEnd();
