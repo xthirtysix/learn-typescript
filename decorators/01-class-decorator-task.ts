@@ -22,7 +22,6 @@ interface IDecoratedClass {
 }
 
 @CreatedAt
-// @ts-ignore
 class DecoratedClass implements IDecoratedClass {
     users: number = 1000;
 

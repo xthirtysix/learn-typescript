@@ -10,7 +10,6 @@ interface IDecoratedProperty {
 
 class DecoratedProperty implements IDecoratedProperty {
     @Max(228)
-    //@ts-ignore
     items: number = 322;
 }
 

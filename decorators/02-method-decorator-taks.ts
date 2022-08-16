@@ -11,13 +11,11 @@ interface IDecoratedMethod {
 
 class DecoratedMethod implements IDecoratedMethod {
     @Catch()
-    //@ts-ignore
     methodWithoutRethrow(): number {
         throw new Error('Error');
     }
 
     @Catch({ rethrow: true })
-    //@ts-ignore
     methodWithRethrow(): number {
         throw new Error('Error');
     }
