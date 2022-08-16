@@ -1,0 +1,12 @@
+{
+  "name": "learn-typescript",
+  "version": "1.0.0",
+  "description": "My selfimprovement in TS",
+  "main": "index.ts",
+  "repository": "git@github.com:xthirtysix/learn-typescript.git",
+  "author": "x36 <ggalliosha@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
